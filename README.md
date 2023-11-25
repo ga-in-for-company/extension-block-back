@@ -38,7 +38,7 @@ CREATE TABLE file_extension
 
 ## API 명세
 
-### GET / extensions
+### GET / extension
 - 선택 또는 추가한 확장자들 조회
 
 ### POST / extension
