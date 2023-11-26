@@ -1,3 +1,5 @@
+## 시스템 구조
+<img src="https://github.com/ga-in-for-company/extension-block-back/assets/151692477/175b98e9-57c3-4435-aae2-9989caa77df2" width="700"/>
 
 ## 기술스택
 
