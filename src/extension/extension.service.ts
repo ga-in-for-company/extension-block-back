@@ -23,15 +23,17 @@ export class ExtensionService {
 
   async update(updateExtensionDto: UpdateExtensionDto) {
     const { name, is_checked } = updateExtensionDto;
-    const extension = await this.extensionRepository.findOne({
+    const extensions = await this.extensionRepository.find({
       where: { name, custom_or_fixed: 'fixed' },
     });
-    if (!extension) {
-      throw new NotFoundException(`Extension with name ${name} not found`);
+    if (extensions.length === 0) {
+      throw new NotFoundException(`Extensions with name ${name} not found`);
     }
-    extension.is_checked = is_checked;
-    await this.extensionRepository.save(extension);
-    return `Extension with name ${name} has been updated`;
+    for (const extension of extensions) {
+      extension.is_checked = is_checked;
+    }
+    await this.extensionRepository.save(extensions);
+    return `Extensions with name ${name} have been updated`;
   }
 
   async remove(name: string) {
